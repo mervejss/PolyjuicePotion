@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+public class soru1 {
+	
+	public static int hesapla(int x)
+	{
+		int pay,payda,kucuk,i=2;
+		pay=x;
+		payda=100-x;
+		
+		if (pay > payda)
+			kucuk = Math.abs(payda);
+		else 
+			kucuk = Math.abs(pay);
+		
+		if(payda==0)
+		{
+			return 1;
+		}
+		else
+		{
+			while (i <= kucuk) 
+			  {
+			   if (pay % i == 0 && payda % i == 0)
+			   {
+			      pay /= i; 
+			      payda /= i;
+			      kucuk /= i;
+			      i = 2; 
+			   } else i++;
+			  }
+		}
+			  
+		
+		return pay+payda;
+			
+	}
+	public static void main(String[] args) {
+		
+		
+		int n;
+		int x;
+		
+		
+		Scanner scan = new Scanner(System.in);
+		n=scan.nextInt();
+		
+		int[] a = new int[n];
+		for(int i=0;i<n;i++)
+		{
+			a[i]=scan.nextInt();
+			
+		}
+	
+		
+		for(int i=0;i<n;i++)
+		{
+			 System.out.println(hesapla(a[i]));
+		}
+		
+		
+	}
+
+}
